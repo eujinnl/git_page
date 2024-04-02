@@ -1,4 +1,3 @@
-
 var timer1 = document.getElementById("timer1");
 var timer2 = document.getElementById("timer2");
 var group1 = Array.from(document.getElementsByClassName("group1"));
@@ -11,7 +10,7 @@ var t2 = 1000; // set your timer2 countdown in seconds
 
 function toggleVisibility(elements) {
   elements.forEach(function(element) {
-    element.style.display = element.style.display !== 'none' ? 'none' : 'inline-block';
+    element.style.display = element.style.display !== 'none' ? 'none' : 'block';
   });
 }
 
@@ -22,23 +21,26 @@ function swapTimers() {
 
 // let's say you want the countdown to end at 12:00 on April 1, 2025 in Bavaria (which is in Central European Time)
 var BachelorDate = moment.tz("2025-04-01 12:00:00", "Europe/Berlin");
-// var MastersDate = moment.tz("2027-04-01 12:00:00", "Europe/Berlin");
+var MastersDate = moment.tz("2027-04-01 12:00:00", "Europe/Berlin");
 
 setInterval(function() {
   var now = moment();
-  var remaining = moment.duration(BachelorDate.diff(now));
+  var b_remaining = moment.duration(BachelorDate.diff(now));
+  var m_rem = moment.duration(MastersDate.diff(now));
   
-  var years = remaining.years();
-  var months = remaining.months();
-  var days = remaining.days();
-  var hours = remaining.hours();
-  var minutes = remaining.minutes();
-  var seconds = remaining.seconds();
+  var years = b_remaining.years();
+  var months = b_remaining.months();
+  var days = b_remaining.days();
+  var hours = b_remaining.hours();
+  var minutes = b_remaining.minutes();
+  var seconds = b_remaining.seconds();
   
   timer1.innerHTML = years + "y "+ months + "m " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+  
+  timer2.innerHTML = `${m_rem.years()}y ${m_rem.months()}m ${m_rem.days()}d ${m_rem.hours()}h ${m_rem.minutes()}m ${m_rem.seconds()}s`
   // timer1.innerHTML = now
 
-  if(yourTargetDate < now) {
+  if(BachelorDate < now) {
     clearInterval(interval);
     timer1.innerHTML = "EXPIRED";
   }
