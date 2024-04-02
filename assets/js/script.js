@@ -19,6 +19,7 @@ function swapTimers() {
   toggleVisibility(group2);
 }
 
+
 // let's say you want the countdown to end at 12:00 on April 1, 2025 in Bavaria (which is in Central European Time)
 var BachelorDate = moment.tz("2025-04-01 12:00:00", "Europe/Berlin");
 var MastersDate = moment.tz("2027-04-01 12:00:00", "Europe/Berlin");
