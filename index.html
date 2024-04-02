@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/style.css">
+  </head>
+ <body>
+  <header class ="home_name">WIP</header>
+  <main class = main> 
+    <div class = timers>
+      <h1 class="group1">Time till Bachelor is finish</h1>
+      <h1 class="group2" style="display: none">Time till Masters is finish</h1>
+      <h2 id="timer1" class="group1">Timer 1</h2>
+      <h2 id="timer2" class="group2" style="display: none">Timer 2</h2>
+      <br>
+      <div class = "button_container">
+        <button class="timer_button" onclick="swapTimers()">Swap Timers</button>
+      </div>
+    </div>
+  </main>
+  <script src="/src/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+<!-- Include Moment Timezone extension -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.33/moment-timezone-with-data.min.js"></script>
+ </body>
+</html>
